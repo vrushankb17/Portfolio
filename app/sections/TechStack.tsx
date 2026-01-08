@@ -1,6 +1,6 @@
 'use client';
 
-import TechRow from '../comp/TechRow';
+import TechRow from '../components/TechRow';
 import {
     SiHtml5, SiCss3, SiJavascript, SiTypescript,
     SiReact, SiTailwindcss, SiExpress, SiWeb3Dotjs, SiShadcnui,
