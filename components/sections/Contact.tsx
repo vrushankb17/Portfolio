@@ -31,6 +31,21 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-4">
+                    <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">resume</h3>
+                    
+                    <div className="flex flex-col gap-1.5">
+                        <Link 
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex flex-wrap items-baseline gap-x-3 text-[15px] hover:bg-gray-100 dark:hover:bg-white/5 px-1 -mx-1 rounded-sm transition-colors py-0.5 w-fit pr-4"
+                        >
+                            <h4 className="font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100">view my resume &rarr;</h4>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="space-y-4">
                     <h2 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">contact</h2>
 
                     <div className="flex flex-wrap gap-5 pt-1">
