@@ -1,13 +1,10 @@
 'use client';
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-
 export default function Hero() {
     return (
         <section className="space-y-6 pb-2">
             <h1 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
-                hi i'm vrushank
+                hi i&apos;m vrushank
             </h1>
 
             <div className="space-y-1 mt-6">

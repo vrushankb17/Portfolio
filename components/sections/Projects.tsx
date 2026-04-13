@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Card } from '@/components/ui/card';
-import { SiGithub } from 'react-icons/si';
 
 type Project = {
     title: string;
