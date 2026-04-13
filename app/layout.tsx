@@ -5,6 +5,7 @@ import { inter } from '@/app/fonts/fonts';
 import ThemeToggle from '@/components/ThemeToggle';
 import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -31,6 +32,7 @@ export default function RootLayout({
           <div className="fixed bottom-6 right-6 z-50">
             <ThemeToggle />
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
