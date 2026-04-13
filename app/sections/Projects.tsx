@@ -45,56 +45,34 @@ const projects: Project[] = [
 
 export default function Projects() {
     return (
-        <section className="my-32 text-center">
-            <h2 className="mb-4 text-4xl font-bold">Proof of Work</h2>
-            <p className="mx-auto mb-12 max-w-2xl text-muted-foreground">
-                Projects that showcase my problem-solving skills, applied machine learning,
-                and real-world system design.
-            </p>
+        <section id="projects" className="pt-8 pb-4">
+            <h2 className="mb-4 text-[15px] font-medium text-gray-900 dark:text-gray-100">projects</h2>
 
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <div className="flex flex-col gap-1.5">
                 {projects.map((project) => (
-                    <ProjectCard key={project.title} {...project} />
+                    <ProjectLine key={project.title} {...project} />
                 ))}
             </div>
         </section>
     );
 }
 
-function ProjectCard({
+function ProjectLine({
     title,
     description,
-    tech,
     repo,
-    wide,
 }: Project) {
     return (
-        <Card
-            className={`flex h-full flex-col justify-between p-8 text-left ${wide ? 'md:col-span-2' : ''
-                }`}
+        <Link
+            href={repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-wrap items-baseline gap-x-3 text-[15px] hover:bg-gray-100 dark:hover:bg-white/5 px-1 -mx-1 rounded-sm transition-colors py-0.5"
         >
-            {/* Content */}
-            <div>
-                <h3 className="mb-3 text-2xl font-semibold">{title}</h3>
-
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                    {description}
-                </p>
-
-                <p className="mb-6 text-xs text-muted-foreground">{tech}</p>
-            </div>
-
-            {/* Action */}
-            <Link
-                href={repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium
-                   text-muted-foreground transition hover:text-foreground"
-            >
-                <SiGithub className="h-4 w-4" />
-                Code
-            </Link>
-        </Card>
+            <h3 className="font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100 lowercase">{title}</h3>
+            <p className="text-gray-400 dark:text-gray-500 lowercase line-clamp-1 flex-1 min-w-[200px]">
+                {description}
+            </p>
+        </Link>
     );
 }

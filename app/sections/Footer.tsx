@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-        <footer className="py-10 text-center text-sm text-muted-foreground">
-            © 2026 Vrushank Bhavsar.
+        <footer className="pt-4 pb-12 text-left text-[13px] text-gray-400 dark:text-gray-500">
+            © 2026 vrushank bhavsar
         </footer>
     );
 }

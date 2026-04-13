@@ -5,36 +5,23 @@ import { Button } from '@/components/ui/button';
 
 export default function Hero() {
     return (
-        <section className="mx-auto max-w-3xl space-y-6">
-            <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
-                Vrushank Bhavsar
+        <section className="space-y-6 pb-2">
+            <h1 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
+                hi i'm vrushank
             </h1>
 
-            <p className="text-lg text-muted-foreground md:text-xl">
-                I&apos;m Vrushank, Full-Stack Developer • Building things that scale and delight.
-            </p>
-
-            <p className="leading-relaxed text-muted-foreground">
-                I like working across the stack — blending design with development to craft clean,
-                functional, and fast experiences. If you&apos;re looking for someone passionate, skilled, and ready to contribute,
-                I&apos;m here to help bring your ideas to life.
-            </p>
-
-
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-                <span className="inline-flex items-center gap-2 rounded-full
-                         border border-green-500/30 bg-green-500/10
-                         px-4 py-1.5 text-sm text-green-400">
-                    <span className="h-2 w-2 rounded-full bg-green-400" />
-                    Available for new opportunities
-                </span>
-
-                <Button variant="outline" asChild>
-                    <Link href="/resume.pdf" target="_blank">
-                        View Resume
-                    </Link>
-                </Button>
+            <div className="space-y-1 mt-6">
+                <p className="text-[15px] font-medium text-gray-600 dark:text-gray-400">
+                    currently
+                </p>
+                <p className="text-[15px] text-gray-500 dark:text-gray-500">
+                    full-stack developer • crafting clean software experiences
+                </p>
             </div>
+            
+            <p className="pt-2 text-[15px] leading-relaxed text-gray-500 dark:text-gray-500 max-w-[650px]">
+                i like working across the stack — blending design with development to build clean, functional, and fast systems.
+            </p>
         </section>
     );
 }
