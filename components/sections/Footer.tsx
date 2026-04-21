@@ -1,7 +1,16 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export default function Footer() {
     return (
-        <footer className="pt-4 pb-12 text-left text-[13px] text-gray-400 dark:text-gray-500">
+        <motion.footer 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+            className="pt-4 pb-12 text-left text-[13px] text-zinc-400 dark:text-zinc-500"
+        >
             © 2026 vrushank bhavsar
-        </footer>
+        </motion.footer>
     );
 }

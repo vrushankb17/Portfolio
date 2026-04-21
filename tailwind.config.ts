@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: "class", // Enables class-based dark mode (we'll toggle 'dark' on <html>)
+    darkMode: "class",
     content: [
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,9 +11,19 @@ const config: Config = {
         extend: {
             fontFamily: {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+                mono: ["var(--font-mono)", "monospace"],
             },
             colors: {
-                // Optional: you can add custom colors for dark mode if needed
+                cyan: {
+                    DEFAULT: '#00F0FF',
+                    glow: 'rgba(0, 240, 255, 0.5)',
+                },
+                purple: {
+                    DEFAULT: '#7000FF',
+                    glow: 'rgba(112, 0, 255, 0.5)',
+                },
+                brandBlack: '#000000',
+                brandDark: '#0D0D0D',
             },
         },
     },

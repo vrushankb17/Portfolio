@@ -1,76 +1,109 @@
 'use client';
 
-import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-type Project = {
-    title: string;
-    description: string;
-    tech: string;
-    repo: string;
-    wide?: boolean;
-};
-
-const projects: Project[] = [
+const projects = [
     {
         title: 'Home Seekr',
         description:
-            'A machine learning–powered web application that predicts house prices based on user-provided property and location details. The project focuses on data preprocessing, feature engineering, and delivering reliable price estimations through a clean web interface.',
-        tech: 'Python • Machine Learning • Data Processing • Web App',
+            'A machine learning–powered web application predicting house prices based on user-provided property details. Built with focus on data preprocessing and clean web interface.',
+        tech: 'Python • Machine Learning • Data Processing',
         repo: 'https://github.com/vrushankb17/Home-Seekr',
     },
     {
         title: 'AquaSafe',
         description:
-            'A machine learning–based risk prediction system designed to assess the presence of Naegleria fowleri using water quality parameters such as temperature, pH, turbidity, and contamination levels.',
-        tech: 'Machine Learning • Environmental Data • Water Quality Analysis',
+            'A machine learning–based risk prediction system assessing the presence of Naegleria fowleri using water quality parameters like pH and contamination levels.',
+        tech: 'Machine Learning • Environmental Data',
         repo: 'https://github.com/vrushankb17/Aqua-Safe',
     },
     {
         title: 'FindMe',
         description:
-            'An AI-based surveillance system that uses computer vision and CNN models to identify missing persons from CCTV footage and assist law enforcement through automated matching.',
-        tech: 'Computer Vision • CNN • AI Surveillance • Web Application',
+            'An AI-based surveillance system using computer vision and CNN models to identify missing persons from CCTV footage to assist law enforcement.',
+        tech: 'Computer Vision • CNN • AI Surveillance',
         repo: 'https://github.com/vrushankb17/Find-me',
     },
     {
         title: 'Craftfolio',
         description:
             'A single-page personal portfolio showcasing my skills, projects, and experience with a focus on clean UI, performance, and modern web practices.',
-        tech: 'Next.js • React • TypeScript • Tailwind CSS • Framer Motion',
+        tech: 'Next.js • React • TypeScript • Tailwind CSS',
         repo: 'https://github.com/vrushankb17/portfolio',
+    },
+    {
+        title: 'Bhej-Mujhe',
+        description:
+            'A peer-to-peer file transfer application built with WebRTC that enables secure, browser-to-browser file sharing without server-side storage.',
+        tech: 'WebRTC • JavaScript • HTML',
+        repo: 'https://github.com/vrushankb17/Bhej-Mujhe',
     },
 ];
 
 export default function Projects() {
     return (
-        <section id="projects" className="pt-8 pb-4">
-            <h2 className="mb-4 text-[15px] font-medium text-gray-900 dark:text-gray-100">projects</h2>
+        <section id="projects" className="space-y-12 scroll-mt-32 font-mono mt-32 w-full flex flex-col items-center">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="w-full max-w-4xl"
+            >
+                <div className="flex items-center gap-4 mb-8 opacity-50">
+                    <div className="w-full h-px bg-white/20" />
+                    <span className="text-xs tracking-widest uppercase whitespace-nowrap text-white">Work_Data</span>
+                    <div className="w-full h-px bg-white/20" />
+                </div>
+            </motion.div>
 
-            <div className="flex flex-col gap-1.5">
-                {projects.map((project) => (
-                    <ProjectLine key={project.title} {...project} />
+            <div className="grid gap-6 sm:grid-cols-2 w-full max-w-4xl">
+                {projects.map((project, i) => (
+                    <ProjectCard key={project.title} project={project} index={i} />
                 ))}
             </div>
         </section>
     );
 }
 
-function ProjectLine({
-    title,
-    description,
-    repo,
-}: Project) {
+function ProjectCard({ project, index }: { project: any, index: number }) {
     return (
-        <Link
-            href={repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-wrap items-baseline gap-x-3 text-[15px] hover:bg-gray-100 dark:hover:bg-white/5 px-1 -mx-1 rounded-sm transition-colors py-0.5"
+        <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
         >
-            <h3 className="font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100 lowercase">{title}</h3>
-            <p className="text-gray-400 dark:text-gray-500 lowercase line-clamp-1 flex-1 min-w-[200px]">
-                {description}
-            </p>
-        </Link>
+            <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full rounded-2xl bg-[#0D0D0D] border border-white/10 hover:border-cyan-500/50 hover:bg-[#111111] transition-all relative overflow-hidden p-8 flex flex-col justify-between"
+            >
+                {/* Hover Inner Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 space-y-4">
+                    <div className="flex justify-between items-start">
+                        <h3 className="text-xl font-bold text-zinc-100 group-hover:text-cyan-400 transition-colors tracking-tight">
+                            {project.title}
+                        </h3>
+                        <span className="text-zinc-600 group-hover:text-cyan-400 opacity-0 group-hover:opacity-100 transition-all font-mono text-xs">
+                            [↗]
+                        </span>
+                    </div>
+                    
+                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-mono">
+                        {project.description}
+                    </p>
+                </div>
+
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/5 space-y-2">
+                    <p className="text-[10px] tracking-wide text-zinc-600 uppercase font-mono group-hover:text-purple-400 transition-colors">
+                        {project.tech}
+                    </p>
+                </div>
+            </a>
+        </motion.div>
     );
 }

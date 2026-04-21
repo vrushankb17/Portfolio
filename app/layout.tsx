@@ -1,7 +1,7 @@
 'use client';
 
 import '@/app/globals.css';
-import { inter } from '@/app/fonts/fonts';
+import { inter, jetBrainsMono } from '@/app/fonts/fonts';
 import ThemeToggle from '@/components/ThemeToggle';
 import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
@@ -15,10 +15,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} scroll-smooth`}
+      className={`${inter.variable} ${jetBrainsMono.variable} scroll-smooth dark`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#f9fafb] text-gray-800 dark:bg-[#0a0a0a] dark:text-gray-300 selection:bg-gray-200 dark:selection:bg-gray-800 selection:text-black dark:selection:text-white transition-colors duration-300">
+      <body className="min-h-screen bg-[#000000] text-[#f5f5f5] font-mono selection:bg-[#00F0FF]/30 selection:text-white transition-colors duration-300">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
